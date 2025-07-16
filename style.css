@@ -214,7 +214,33 @@ a:hover {
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
-  .intro-text h1 { font-size: 2.6rem; }
-  .intro-text h2 { font-size: 1.2rem; }
-  .content { padding: 80px 6%; }
+  /* Intro heading font size */
+  .intro-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .intro-text h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Main content padding and background */
+  .content {
+    padding: 80px 6%;
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.6); /* fallback solid bg */
+  }
+
+  /* Section spacing and readability */
+  section {
+    margin: 60px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  section > p,
+  section > ul {
+    max-width: 100%;
+  }
+
+  /* Skill and project items stack better */
 }
