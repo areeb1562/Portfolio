@@ -1,0 +1,220 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND VIDEO */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.5);
+}
+
+/* LIGHT CURSOR */
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  filter: blur(8px);
+  mix-blend-mode: screen;
+}
+
+/* INTRO SCREEN */
+.intro-screen {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.intro-text h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.intro-text h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ccc;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* SCROLL CUE */
+.scroll-cue {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: pulse 1.2s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* HIDE INTRO ON SCROLL */
+.intro-screen.hide {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* MAIN CONTENT */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 100px 10% 60px 10%;
+  min-height: 200vh;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.4);
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+/* SECTION HEADINGS */
+h3 {
+  font-size: 1.6rem;
+  color: #00ffff;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+section {
+  margin: 100px 0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* MAX WIDTH FOR CONTENT */
+section > p,
+section > ul {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===================== SKILLS ===================== */
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.skills ul li::before {
+  content: "• ";
+  color: #00ffff;
+}
+
+.skills h4 {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: rgba(252, 252, 252, 0.7);
+}
+
+/* ===================== PROJECTS ===================== */
+.projects ul {
+  padding-left: 0;
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.projects ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.projects ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #00ffff;
+}
+
+.projects h4 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: rgba(252, 252, 252, 0.7);
+}
+
+/* ===================== EXPERIENCE ===================== */
+.experience .job-entry {
+  margin-bottom: 30px;
+}
+
+/* ===================== LINKS ===================== */
+a {
+  color: #00ffff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== DOWNLOAD BUTTON ===================== */
+.download-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin-top: 20px;
+  background: #00ffff;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #00dddd;
+  transform: scale(1.05);
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 768px) {
+  .intro-text h1 { font-size: 2.6rem; }
+  .intro-text h2 { font-size: 1.2rem; }
+  .content { padding: 80px 6%; }
+}
