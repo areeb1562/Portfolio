@@ -4,6 +4,12 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 * {
@@ -21,21 +27,18 @@ html, body {
   color-scheme: light;
 }
 
-/* Hide scrollbar for Chrome, Edge, Safari */
+/* Hide scrollbars */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for Firefox */
 html {
   scrollbar-width: none;
 }
 
-/* Hide scrollbar for IE */
 body {
   -ms-overflow-style: none;
 }
-
 
 /* ============================= */
 /*   1. BRUTAL GRID BACKGROUND   */
@@ -493,7 +496,7 @@ body::after {
 /*           3. HERO             */
 /* ============================= */
 .hero {
-  padding: 25px 60px;
+  padding: 25px 5vw;
 }
 
 .hero-inner {
@@ -707,16 +710,13 @@ body::after {
   background: #000;
   border-top: 3px solid #000;
   border-bottom: 3px solid #000;
-
   padding: 10px 0;
-
-  margin-top: 35px; /* 👈 add space above */
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: scrollLeft 30s linear infinite;
+  animation: marqueeScroll 18s linear infinite;
 }
 
 .marquee-content {
@@ -726,24 +726,19 @@ body::after {
 }
 
 .marquee-content span {
-  font-weight: 6  00;
+  font-weight: 600;
   font-size: 18px;
   color: #fff;
   white-space: nowrap;
   letter-spacing: 1px;
 }
 
-/* Pause on hover */
-.skill-marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* Animation */
-@keyframes scrollLeft {
-  from {
+/* PERFECT LOOP */
+@keyframes marqueeScroll {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
@@ -770,7 +765,7 @@ body::after {
 /* GRID */
 .about-grid {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: minmax(0, 380px) 1fr;
   gap: 70px;
   align-items: center;
 }
@@ -809,9 +804,11 @@ body::after {
   border: 3px solid #000;
   box-shadow: 6px 6px 0 #000;
   background: #f2f2ee;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-/* HEADER (reduced padding) */
+/* HEADER */
 .music-header {
   background: #f5f13c;
   padding: 6px 14px;
@@ -821,31 +818,63 @@ body::after {
   font-size: 13px;
 }
 
-/* LCD DISPLAY */
+/* ============================= */
+/*         LCD DISPLAY           */
+/* ============================= */
+
 .retro-display {
   background: #c9d7a6;
   border: 3px solid #000;
   margin: 12px;
   padding: 12px 14px;
   font-family: monospace;
+  overflow: hidden;
 }
 
+/* Track + Time Row */
 .display-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0; /* important for flex overflow */
   margin-bottom: 8px;
 }
 
+/* Track name container */
 .display-top h4 {
+  flex: 1;
+  min-width: 0;
   font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
 }
 
-.display-top span {
+/* Scrolling text inside h4 */
+.display-top h4 span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollTrack 8s linear infinite;
+}
+
+/* Time */
+.display-top .time {
+  flex-shrink: 0;
   font-size: 12px;
+  white-space: nowrap;
 }
 
-/* PROGRESS */
+/* Scroll animation */
+@keyframes scrollTrack {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ============================= */
+/*           PROGRESS            */
+/* ============================= */
+
 .display-progress {
   padding: 0 4px;
 }
@@ -856,18 +885,22 @@ body::after {
   accent-color: #f5f13c;
 }
 
-/* CONTROL ROW */
+/* ============================= */
+/*         CONTROL ROW           */
+/* ============================= */
+
 .control-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 14px 14px 14px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .music-controls {
   display: flex;
   gap: 6px;
-  justify-self: center;
 }
 
 .music-controls button {
@@ -884,16 +917,21 @@ body::after {
   box-shadow: 0 0 0 #000;
 }
 
-/* VOLUME */
+/* ============================= */
+/*            VOLUME             */
+/* ============================= */
+
 .volume-retro {
   display: flex;
   align-items: center;
   gap: 6px;
   font-family: monospace;
+  min-width: 0;
 }
 
 #volumeBar {
   width: 90px;
+  max-width: 100%;
   height: 5px;
   background: repeating-linear-gradient(
     to right,
@@ -922,6 +960,7 @@ body::after {
   border: 2px solid #000;
   cursor: pointer;
 }
+
 
 /* ============================= */
 /*         RIGHT COLUMN          */
@@ -1152,6 +1191,131 @@ body::after {
 
   #volumeBar {
     width: 100%;
+  }
+
+}
+
+/* ================================= */
+/*        FIX ULTRA SMALL SCREENS    */
+/* ================================= */
+
+@media (max-width: 400px) {
+
+  /* Prevent horizontal scroll globally */
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+  }
+
+  /* Prevent flex/grid overflow */
+  .hero-inner,
+  .about-grid,
+  .about-left,
+  .about-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* Reduce brutal shadows */
+  .about-image,
+  .about-music,
+  .brutal-box,
+  .hero-yellow,
+  .hero-strip,
+  .brutal-mini {
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  /* Slightly reduce borders */
+  .about-image,
+  .about-music {
+    border-width: 2px;
+  }
+
+  /* Force main blocks to fit */
+  .about-image,
+  .about-music {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ============================= */
+  /*        MUSIC PLAYER FIX       */
+  /* ============================= */
+
+  .retro-display {
+    padding: 10px;
+  }
+
+  .display-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  /* Track name — always single line */
+  .display-top h4 {
+    flex: 1;
+    min-width: 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Time */
+  .display-top span {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  /* Controls */
+  .control-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .music-controls {
+    gap: 6px;
+  }
+
+  .music-controls button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  #volumeBar {
+    width: 100%;
+    max-width: 110px;
+  }
+
+  /* ============================= */
+  /*       Typography Adjust       */
+  /* ============================= */
+
+  .about-title {
+    font-size: 20px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.05;
+  }
+
+  .hero-yellow {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .hero-strip {
+    padding: 10px 14px;
+    font-size: 12px;
   }
 
 }

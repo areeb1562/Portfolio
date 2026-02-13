@@ -1,3 +1,8 @@
+  // Always force scroll to top on load
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
+
 window.addEventListener("load", () => {
     window.scrollTo(0, 0);
 });
@@ -254,3 +259,4 @@ document.addEventListener("DOMContentLoaded", function () {
     loadTrack(currentIndex);
 
 });
+
