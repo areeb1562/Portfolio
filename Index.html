@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AREEB</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/Favicon/AB.png">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js"></script>
+</head>
+
+<div class="preloader">
+  <div class="loader-line">
+
+    <div class="left-group">
+      <span>Loading</span>
+      <span class="dots"></span>
+    </div>
+
+    <span class="percent">0%</span>
+
+  </div>
+</div>
+
+
+<!-- HEADER -->
+<header class="brutal-header">
+  <div class="header-inner">
+
+    <a href="#" class="logo brutal-btn">
+      AREEB.exe
+    </a>
+
+    <nav class="nav brutal-box">
+      <a href="#about">/ ABOUT</a>
+      <a href="#skill">/ SKILLS</a>
+      <a href="#log">/ LOG</a>
+      <a href="#project">/ PROJECTS</a>
+      <a href="#contact" class="hire-btn">HIRE ME</a>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="menu-btn" id="menuBtn">MENU</button>
+
+
+    <!-- OVERLAY -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- MOBILE MENU PANEL -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">ABOUT</a>
+      <a href="#skill">SKILLS</a>
+      <a href="#log">LOG</a>
+      <a href="#project">PROJECTS</a>
+      <a href="#contact" class="mobile-hire">HIRE ME</a>
+    </div>
+
+
+</header>
+</div>
+</header>
+<!--END HEADER -->
+
+<!--HERO -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-left">
+
+      <div class="status brutal-mini">
+        <span class="dot"></span>
+        SYSTEM STATUS: ONLINE
+      </div>
+
+      <h1 class="hero-title">
+        DATA SCIENTIST • <br>
+        ANALYST
+      </h1>
+
+      <div class="hero-yellow">
+        I turn raw data into insights and build tools that make sense of the numbers.
+      </div>
+
+
+      <div class="hero-strip">
+        MACHINE LEARNING • DATA ANALYSIS • WEB DEVELOPMENT
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+      <img src="assets/img/Index/Hero-AB.png" alt="Hero Illustration">
+    </div>
+
+  </div>
+</section>
+<!--END HERO -->
+
+<!--SCROLL -->
+<section class="skill-marquee">
+  <div class="marquee-track">
+    <div class="marquee-content">
+      <span>• PYTHON</span>
+      <span>• SQL</span>
+      <span>• DATA VISUALISATION</span>
+      <span>• ML MODELS</span>
+      <span>• DASHBOARDING</span>
+      <span>• WEB APPS</span>
+      <span>• FULL STACK DEVELOPER</span>
+      <span>• OPEN FOR WORK</span>
+    </div>
+
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-content">
+      <span>• PYTHON</span>
+      <span>• SQL</span>
+      <span>• DATA VISUALISATION</span>
+      <span>• ML MODELS</span>
+      <span>• DASHBOARDING</span>
+      <span>• WEB APPS</span>
+      <span>• FULL STACK DEVELOPER</span>
+      <span>• OPEN FOR WORK</span>
+    </div>
+
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-content">
+      <span>• PYTHON</span>
+      <span>• SQL</span>
+      <span>• DATA VISUALISATION</span>
+      <span>• ML MODELS</span>
+      <span>• DASHBOARDING</span>
+      <span>• WEB APPS</span>
+      <span>• FULL STACK DEVELOPER</span>
+      <span>• OPEN FOR WORK</span>
+    </div>
+
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-content">
+      <span>• PYTHON</span>
+      <span>• SQL</span>
+      <span>• DATA VISUALISATION</span>
+      <span>• ML MODELS</span>
+      <span>• DASHBOARDING</span>
+      <span>• WEB APPS</span>
+      <span>• FULL STACK DEVELOPER</span>
+      <span>• OPEN FOR WORK</span>
+    </div>
+  </div>
+</section>
+<!--END SCROLL -->
+
+<!-- ============================= -->
+<!--         ABOUT SECTION         -->
+<!-- ============================= -->
+<section class="about-section" id="about">
+
+  <div class="about-wrapper">
+
+    <div class="about-grid">
+
+      <!-- LEFT SIDE -->
+      <div class="about-left">
+
+        <!-- IMAGE (5:4 Ratio) -->
+        <div class="about-image">
+          <img src="assets/img/index/img.png" alt="Areeb">
+        </div>
+
+        <!-- MUSIC PLAYER -->
+        <div class="about-music">
+
+          <div class="music-header">
+            ■ NOW PLAYING
+          </div>
+
+          <div class="retro-display">
+
+            <div class="display-top">
+              <h4 id="trackTitle">Loading...</h4>
+              <span id="timeDisplay">00:00 / 00:00</span>
+            </div>
+
+            <div class="display-progress">
+              <input type="range" id="progressBar" value="0">
+            </div>
+
+          </div>
+
+          <div class="control-row">
+
+            <div class="music-controls">
+              <button id="prevBtn">⏮</button>
+              <button id="playPauseBtn">▶</button>
+              <button id="nextBtn">⏭</button>
+            </div>
+
+            <div class="volume-retro">
+              🔊
+              <input type="range" id="volumeBar" min="0" max="0.7" step="0.01">
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT SIDE -->
+      <div class="about-right">
+
+        <h2 class="about-title">WHO AM I?</h2>
+
+        <p class="about-description">
+          I’m <span class="highlight">Areeb Basheer</span>,
+          a Data Scientist and developer working across AI, analytics,
+          and scalable web systems — turning complex problems into meaningful products
+          while adding <span class="highlight-yellow">personality</span> to work
+        </p>
+
+
+
+        <ul class="about-points">
+          <li>› Data Scientist focused on real-world AI systems</li>
+          <li>› Designing and building scalable web applications</li>
+          <li>› Turning messy data into clear, useful insights</li>
+          <li>› Blending logic, creativity, and performance</li>
+        </ul>
+
+
+
+        <div class="about-meta">
+          <div class="meta-box dark">
+            📍 LOCATION: WORLDWIDE
+          </div>
+          <div class="meta-box green">
+            ● STATUS: AVAILABLE
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<audio id="audioPlayer"></audio>
+
+
+
+</body>
+
+</html>

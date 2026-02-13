@@ -1,0 +1,1157 @@
+/* ============================= */
+/*        GLOBAL RESET           */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE */
+body {
+  -ms-overflow-style: none;
+}
+
+
+/* ============================= */
+/*   1. BRUTAL GRID BACKGROUND   */
+/* ============================= */
+
+body {
+  background-color: #f2f2ee;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+  background-position: 0 0;
+
+  min-height: 100vh;
+  position: relative;
+}
+
+
+/* ============================= */
+/*        CEMENT GRAIN LAYER     */
+/* ============================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+  opacity: 0.10;
+}
+
+
+/* ============================= */
+/*            PRELOADER          */
+/* ============================= */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: #f2f2ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Courier New', monospace;
+}
+
+.preloader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+  opacity: 0.10;
+  z-index: 1;
+}
+
+.loader-line {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 700px;
+
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+/* Left side */
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Dots */
+.dots {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Percent */
+.percent {
+  flex-shrink: 0;
+  width: 70px;
+  text-align: right;
+  font-weight: bold;
+}
+
+
+/* ============================= */
+/*        TABLET (≤ 992px)      */
+/* ============================= */
+
+@media (max-width: 992px) {
+
+  .loader-line {
+    font-size: 18px;
+    max-width: 90%;
+  }
+
+}
+
+
+/* ============================= */
+/*        MOBILE (≤ 600px)      */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+  .loader-line {
+    font-size: 14px;
+    gap: 10px;
+    max-width: 92%;
+  }
+
+  .percent {
+    width: auto;
+  }
+
+}
+
+
+
+
+
+/* ============================= */
+/*          2. HEADER            */
+/* ============================= */
+
+.brutal-header {
+  padding: 30px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* equal height */
+}
+
+
+/* ============================= */
+/*        BRUTAL BOX STYLE       */
+/* ============================= */
+
+.brutal-box {
+  background: #f2f2ee;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center; /* vertical center */
+  white-space: nowrap;
+}
+
+
+/* ============================= */
+/*           LOGO                */
+/* ============================= */
+
+.logo {
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #000;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.logo:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+/* ============================= */
+/*            NAV                */
+/* ============================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  white-space: nowrap;
+  max-width: 999px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 4px 6px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav a:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+/* ============================= */
+/*         HIRE BUTTON           */
+/* ============================= */
+
+.hire-btn {
+  background: #f5f13c;
+  padding: 14px 22px;   /* increased */
+  font-size: 15px;      /* slightly bigger text */
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.2s ease;
+}
+
+
+.hire-btn:hover {
+  background: #f5f13c;
+  color: #000;
+}
+
+
+/* ============================= */
+/*   SHRINK HEADER (900px ↓)     */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .brutal-header {
+    padding: 18px 25px;
+  }
+
+  .brutal-box {
+    padding: 6px 14px;
+    box-shadow: 4px 4px 0px #000;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 3px 4px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .hire-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+
+/* ============================= */
+/*        MOBILE (≤760px)        */
+/* ============================= */
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+}
+
+
+/* ============================= */
+/*         BRUTAL BUTTON         */
+/* ============================= */
+
+.brutal-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  background: #f2f2ee;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.brutal-btn:hover {
+  transform: translate(5px, 5px);
+  box-shadow: 2px 2px 0px #000;
+  background: #f5f13c;
+  color: #000;
+}
+
+.brutal-btn:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+.brutal-btn:focus {
+  outline: none;
+}
+
+/* ============================= */
+/*      MOBILE MENU SYSTEM       */
+/* ============================= */
+
+/* Hide menu button on desktop */
+.menu-btn {
+  display: none;
+}
+
+/* Overlay (base state) */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1500;
+}
+
+/* Mobile menu panel (base hidden state) */
+.mobile-menu {
+  position: fixed;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+
+  width: 85%;
+  max-width: 420px;
+
+  background: #eaeae6;
+  border: 3px solid #000;
+  box-shadow: 8px 8px 0 #000;
+
+  padding: 0; /* remove padding so dividers are full width */
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.25s steps(8);
+  z-index: 2000;
+}
+
+/* ACTIVE STATES */
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu.active {
+  transform: translateX(-50%) scaleY(1);
+}
+
+
+/* ============================= */
+/*           LINKS STYLE         */
+/* ============================= */
+
+.mobile-menu a {
+  width: 100%;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+  letter-spacing: 1px;
+
+  padding: 17px 35px;
+
+  display: block;
+
+  border-bottom: 3px solid #000; /* divider */
+  transition: all 0.15s ease;
+}
+
+/* Remove divider from last item */
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.mobile-menu a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================= */
+/*        HIRE ME SPECIAL        */
+/* ============================= */
+
+.mobile-hire {
+  background: #e6e632;
+  font-weight: 800;
+}
+
+/* Optional: brutal hover override for hire */
+.mobile-hire:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================= */
+/*         RESPONSIVE RULES      */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  /* Hide desktop nav */
+  .nav {
+    display: none;
+  }
+
+  /* Show menu button */
+  .menu-btn {
+    display: block;
+    background: #e6e632;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    padding: 8px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  .menu-btn:active {
+    transform: translate(4px,4px);
+    box-shadow: 2px 2px 0 #000;
+  }
+}
+
+
+
+/* ============================= */
+/*           3. HERO             */
+/* ============================= */
+.hero {
+  padding: 25px 60px;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+/* ============================= */
+/*         LEFT COLUMN           */
+/* ============================= */
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* center horizontally */
+  text-align: center;      /* center text */
+}
+
+/* ============================= */
+/*        STATUS BOX             */
+/* ============================= */
+
+.brutal-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #f2f2ee;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+
+  padding: 10px 22px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #00c853;
+  border: 2px solid #000;
+}
+
+/* ============================= */
+/*        MAIN TITLE             */
+/* ============================= */
+
+.hero-title {
+  font-size: 72px;
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  text-transform: uppercase;
+
+  margin-bottom: 28px;
+}
+
+/* ============================= */
+/*        YELLOW BOX             */
+/* ============================= */
+
+.hero-yellow {
+  max-width: 620px;
+
+  background: #e6e632;
+  border: 3px solid #000;
+  box-shadow: 8px 8px 0px #000;
+
+  padding: 22px 34px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+
+  color: #000;
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+/* ============================= */
+/*        SKILL STRIP            */
+/* ============================= */
+
+.hero-strip {
+  display: inline-block;
+
+  background: #f2f2ee;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0px #000;
+
+  padding: 16px 32px;
+
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ============================= */
+/*        RIGHT IMAGE            */
+/* ============================= */
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+  /* ============================= */
+  /*        RESPONSIVE             */
+  /* ============================= */
+
+  @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 55px;
+      }
+    .hero-yellow {
+        font-size: 14px;
+        font-weight: 400;
+      }
+  }
+
+  @media (max-width: 992px) {
+
+  .hero {
+    padding: 60px 40px;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  /* 👇 MAKE IMAGE SMALLER WHEN STACKED */
+  .hero-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-right img {
+    width: 100%;
+    max-width: 360px;   /* adjust if needed */
+    height: auto;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-yellow {
+    font-size: 16px;
+    padding: 18px 24px;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .hero-strip {
+    font-size: 14px;
+    padding: 14px 22px;
+  }
+}
+
+
+  @media (max-width: 600px) {
+
+    .hero {
+      padding: 50px 20px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      line-height: 1.05;
+    }
+
+    .hero-yellow {
+      font-size: 14px;
+      padding: 16px 18px;
+    }
+
+    .hero-strip {
+      font-size: 13px;
+      padding: 12px 18px;
+    }
+
+    .brutal-mini {
+      font-size: 12px;
+      padding: 8px 16px;
+      box-shadow: 4px 4px 0px #000;
+    }
+  }
+
+/* ============================= */
+/*        SCROLLING STRIP        */
+/* ============================= */
+
+.skill-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+
+  padding: 10px 0;
+
+  margin-top: 35px; /* 👈 add space above */
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 40px;
+  padding: 0 30px;
+}
+
+.marquee-content span {
+  font-weight: 6  00;
+  font-size: 18px;
+  color: #fff;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+/* Pause on hover */
+.skill-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Animation */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ============================= */
+/*         ABOUT SECTION         */
+/* ============================= */
+
+.about-section {
+  padding: 80px 6vw;
+}
+
+/* MAIN WRAPPER BOX */
+.about-wrapper {
+  background: #f2f2ee;
+  padding: 60px 6vw;
+  border: 3px solid #000;
+  box-shadow: 8px 8px 0 #000;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* GRID */
+.about-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* ============================= */
+/*         LEFT COLUMN           */
+/* ============================= */
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* IMAGE (balanced ratio for layout) */
+.about-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* better balance */
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================= */
+/*         MUSIC BOX             */
+/* ============================= */
+
+.about-music {
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  background: #f2f2ee;
+}
+
+/* HEADER (reduced padding) */
+.music-header {
+  background: #f5f13c;
+  padding: 6px 14px;
+  border-bottom: 3px solid #000;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+/* LCD DISPLAY */
+.retro-display {
+  background: #c9d7a6;
+  border: 3px solid #000;
+  margin: 12px;
+  padding: 12px 14px;
+  font-family: monospace;
+}
+
+.display-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.display-top h4 {
+  font-size: 13px;
+}
+
+.display-top span {
+  font-size: 12px;
+}
+
+/* PROGRESS */
+.display-progress {
+  padding: 0 4px;
+}
+
+#progressBar {
+  width: 100%;
+  height: 4px;
+  accent-color: #f5f13c;
+}
+
+/* CONTROL ROW */
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px 14px 14px;
+}
+
+.music-controls {
+  display: flex;
+  gap: 6px;
+  justify-self: center;
+}
+
+.music-controls button {
+  border: 3px solid #000;
+  background: #fff;
+  padding: 5px 10px;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.music-controls button:active {
+  transform: translate(3px,3px);
+  box-shadow: 0 0 0 #000;
+}
+
+/* VOLUME */
+.volume-retro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: monospace;
+}
+
+#volumeBar {
+  width: 90px;
+  height: 5px;
+  background: repeating-linear-gradient(
+    to right,
+    #666 0px,
+    #666 6px,
+    #222 6px,
+    #222 12px
+  );
+  appearance: none;
+  border: 2px solid #000;
+}
+
+#volumeBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 16px;
+  background: #f5f13c;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+#volumeBar::-moz-range-thumb {
+  width: 12px;
+  height: 16px;
+  background: #f5f13c;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+/* ============================= */
+/*         RIGHT COLUMN          */
+/* ============================= */
+
+.about-title {
+  font-size: 42px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 25px;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.highlight-yellow {
+  background: #f5f13c;
+  padding: 2px 6px;
+}
+
+.about-points {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
+  color: #555;
+}
+
+.about-points li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.about-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.meta-box {
+  padding: 10px 18px;
+  border: 2px solid #000;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.meta-box.dark {
+  background: #111;
+  color: #fff;
+}
+
+.meta-box.green {
+  background: #33ff66;
+}
+
+/* ============================= */
+/*        RESPONSIVE - ABOUT     */
+/* ============================= */
+
+/* ---------- 1200px ---------- */
+@media (max-width: 1200px) {
+
+  .about-wrapper {
+    padding: 60px 5vw;
+  }
+
+  .about-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .about-description {
+    font-size: 16px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+  }
+
+  .about-points {
+    text-align: center;
+  }
+
+  .about-points li {
+    font-size: 13px;
+  }
+
+  .about-meta {
+    justify-content: center;
+  }
+}
+
+
+/* ---------- 992px ---------- */
+@media (max-width: 992px) {
+
+  .about-section {
+    padding: 70px 40px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-wrapper {
+    padding: 50px 5vw;
+  }
+
+  .about-image {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .about-description {
+    font-size: 15px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 25px auto;
+  }
+
+  .about-points {
+    text-align: center;
+  }
+
+  .about-points li {
+    font-size: 13px;
+  }
+
+  .about-meta {
+    justify-content: center;
+  }
+
+}
+
+
+/* ---------- 768px ---------- */
+@media (max-width: 768px) {
+
+  .about-section {
+    padding: 60px 30px;
+  }
+
+  .about-wrapper {
+    padding: 45px 5vw;
+  }
+
+  .about-image {
+    max-width: 380px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-description {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .about-points li {
+    font-size: 12.5px;
+  }
+
+}
+
+
+/* ---------- 600px ---------- */
+@media (max-width: 600px) {
+
+  .about-section {
+    padding: 50px 20px;
+  }
+
+  .about-wrapper {
+    padding: 40px 20px;
+  }
+
+  .about-grid {
+    gap: 40px;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .about-title {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+
+  .about-points li {
+    font-size: 12px;
+  }
+
+  .about-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .music-controls {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .music-controls button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  #volumeBar {
+    width: 100%;
+  }
+
+}
