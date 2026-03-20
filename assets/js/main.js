@@ -236,9 +236,9 @@ document.addEventListener("DOMContentLoaded", function () {
     /*          VOLUME (70%)         */
     /* ============================= */
 
-    audio.volume = 0.1;
-    volumeBar.value = 0.1;
-    volumeBar.max = 0.1;
+    audio.volume = 0.2;
+    volumeBar.value = 0.2;
+    volumeBar.max = 0.2;
 
     volumeBar.addEventListener("input", function () {
         audio.volume = volumeBar.value;
@@ -260,3 +260,160 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/* ============================= */
+/*       SCROLL REVEAL           */
+/* ============================= */
+
+const observer = new IntersectionObserver((entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("show");
+
+    }
+
+  });
+
+},{
+  threshold:0.15
+});
+
+
+document.querySelectorAll(".reveal, .reveal-box").forEach(el=>{
+  observer.observe(el);
+});
+
+
+
+
+
+
+
+
+let map;
+let markers = [];
+let activeIndex = null;
+
+const locations = [
+  {
+    coords: [10.9143, 75.9212],
+    title: "DATA SCIENTIST — LYSEIBUG",
+    desc: `
+    • Developed an intelligent chatbot to automate company-specific query resolution <br>
+    • Leveraged organizational data to significantly reduce response time and manual effort <br>
+    • Designed and deployed responsive, production-ready web applications
+    `
+  },
+  {
+    coords: [25.1340, 55.2375],
+    title: "DATA ANALYST — GRAND HYPERMARKETS",
+    desc: `
+    • Analyzed sales data, market trends, and consumer behavior to optimize business decisions <br>
+    • Conducted audits across 16 stores managing inventory worth up to 24M AED <br>
+    • Built predictive forecasting models to support strategic planning and operations
+    `
+  },
+  {
+    coords: [11.2588, 75.7804],
+    title: "DATA SCIENCE INTERN — TECHOLAS",
+    desc: `
+    • Developed and evaluated predictive models using real-world datasets <br>
+    • Performed exploratory data analysis to uncover actionable insights <br>
+    • Delivered data-driven recommendations to support business strategy
+    `
+  }
+];
+
+function initNeoMap() {
+
+  map = L.map('neo-map', {
+    zoomControl: false,
+    dragging: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
+    attributionControl: false
+  }).setView([20, 65], 4);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: ''
+  }).addTo(map);
+
+  const items = document.querySelectorAll(".neo-item");
+  const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+  function activate(index) {
+
+    // already active → do nothing
+    if (activeIndex === index) return;
+
+    activeIndex = index;
+
+    const { coords, title, desc } = locations[index];
+
+    map.flyTo(coords, 10, { duration: 1.2 });
+
+    // reset dots
+    markers.forEach(m => m.getElement().classList.remove("active"));
+
+    // activate dot
+    markers[index].getElement().classList.add("active");
+
+    // update left
+    items.forEach(i => i.classList.remove("active"));
+    items[index].classList.add("active");
+
+    // update text
+    document.getElementById("neo-title").textContent = title;
+    document.getElementById("neo-desc").innerHTML = desc;
+  }
+
+  // CREATE DOTS
+  locations.forEach(loc => {
+    const marker = L.marker(loc.coords, {
+      icon: L.divIcon({
+        className: "neo-dot",
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      })
+    }).addTo(map);
+
+    markers.push(marker);
+  });
+
+  // EVENTS
+  items.forEach((item, index) => {
+
+    // 🖥️ hover
+    item.addEventListener("mouseenter", () => {
+      if (!isTouch) activate(index);
+    });
+
+    // 📱 tap → ALWAYS SWITCH
+    item.addEventListener("click", () => {
+      activate(index);
+    });
+
+  });
+
+  // RESET only for desktop
+  document.querySelector(".neo-left").addEventListener("mouseleave", () => {
+    if (isTouch) return;
+
+    activeIndex = null;
+
+    map.flyTo([20, 65], 4, { duration: 1.2 });
+
+    markers.forEach(m => m.getElement().classList.remove("active"));
+    items.forEach(i => i.classList.remove("active"));
+
+    document.getElementById("neo-title").textContent = "HOVER A LOCATION";
+    document.getElementById("neo-desc").textContent = "Details will appear here.";
+  });
+
+}
+
+window.addEventListener("load", initNeoMap);

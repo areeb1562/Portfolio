@@ -41,6 +41,42 @@ body {
 }
 
 /* ============================= */
+/*        SCROLL ANIMATIONS      */
+/* ============================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(60px) scale(0.98);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+
+/* Slight stagger */
+.reveal.delay1{ transition-delay:0.1s; }
+.reveal.delay2{ transition-delay:0.2s; }
+.reveal.delay3{ transition-delay:0.3s; }
+
+
+/* Brutalist pop effect */
+.reveal-box{
+  opacity:0;
+  transform:translateY(70px) rotate(-1deg);
+  transition:all .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-box.show{
+  opacity:1;
+  transform:translateY(0) rotate(0deg);
+}
+
+/* ============================= */
 /*   1. BRUTAL GRID BACKGROUND   */
 /* ============================= */
 
@@ -400,7 +436,7 @@ body::after {
   display: flex;
   flex-direction: column;
 
-  transition: transform 0.25s steps(8);
+  transition: transform 0.15s steps(8);
   z-index: 2000;
 }
 
@@ -727,7 +763,7 @@ body::after {
 
 .marquee-content span {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 19px;
   color: #fff;
   white-space: nowrap;
   letter-spacing: 1px;
@@ -1318,4 +1354,539 @@ body::after {
     font-size: 12px;
   }
 
+}
+
+
+/* ========================= */
+/*        BASE SECTION       */
+/* ========================= */
+
+.skills-stack {
+  padding: 60px 6%;
+  background: #030303;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  position: relative;
+}
+
+/* subtle grid overlay */
+.skills-stack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.059) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.059) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
+
+.skills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  padding-bottom: 18px;
+}
+
+.skills-header h1 {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.skills-header h1 span {
+  color: #fff;
+}
+
+.skills-header h1 {
+  color: #2fff6a;
+}
+
+.status {
+  font-size: 13px;
+  color: #2fff6a;
+  letter-spacing: 1px;
+}
+
+/* ========================= */
+/*           GRID            */
+/* ========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.205);
+}
+
+/* ========================= */
+/*         CARD BASE         */
+/* ========================= */
+
+.skill-card {
+  padding: 22px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.205);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* inner glow line */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* ========================= */
+/*           TEXT            */
+/* ========================= */
+
+.skill-card .label {
+  font-size: 11px;
+  color: #2fff6a;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: block;
+  text-align: center;
+}
+
+.skill-card h3 {
+  font-size:18px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffffe6;
+}
+
+/* ========================= */
+/*         HOVER FX          */
+/* ========================= */
+
+.skill-card:hover {
+  /*transform: translate(-3px, -3px);*/
+  box-shadow: 6px 6px 0 #000;
+  color: #000;
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+.skill-card:hover h3,
+.skill-card:hover .label {
+  color: #000;
+}
+
+/* ========================= */
+/*      UNIQUE COLORS        */
+/* ========================= */
+
+.c1:hover { background: #2fff6a; }
+.c2:hover { background: #00e0ff; }
+.c3:hover { background: #ff4d4d; }
+.c4:hover { background: #ffd93d; }
+.c5:hover { background: #a66cff; }
+.c6:hover { background: #ff8c42; }
+.c7:hover { background: #00ffab; }
+.c8:hover { background: #ff5c8a; }
+.c9:hover { background: #3ddcff; }
+.c10:hover { background: #f6ff00; }
+.c11:hover { background: #00c2ff; }
+.c12:hover { background: #ff9f1c; }
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.skills-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  border-top: 3px solid rgb(255, 255, 255);
+  padding-top: 18px;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+/* ========================= */
+/*        RESPONSIVE         */
+/* ========================= */
+
+/* ========================= */
+/*   TABLET (keep 6 cols)    */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+  .skills-header h1 {
+    font-size: 42px;
+  }
+
+  .skill-card {
+    padding: 20px;
+  }
+
+  .skill-card h3 {
+    font-size: 16px;
+  }
+
+  .skill-card .label {
+    font-size: 10px;
+  }
+}
+
+
+/* ========================= */
+/*       MOBILE ONLY         */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 per row */
+  }
+
+  .skills-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .skills-header h1 {
+    font-size: 34px;
+  }
+
+  .skill-card {
+    padding: 18px;
+  }
+
+  .skill-card h3 {
+    font-size: 15px;
+  }
+
+  .skill-card .label {
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   BASE & RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+/* =========================
+   HEADER – reduced gap (desktop top/bottom padding decreased)
+========================= */
+.exp-title {
+  text-align: center;
+  margin: 40px 0 15px; /* was 50px 0 20px – now tighter */
+}
+.exp-title h1 {
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  display: inline-flex;
+  gap: 20px;
+  align-items: baseline; /* keeps both parts on the same baseline */
+}
+.exp-title span {
+  color: #ff2b2b;
+  /* transform removed – alignment handled by flex */
+}
+@media (max-width: 768px) {
+  .exp-title h1 { font-size: 48px; gap: 10px; }
+  .exp-title { margin: 40px 0 15px; }
+}
+@media (max-width: 480px) {
+  .exp-title h1 { font-size: 36px; }
+  .exp-title { margin: 30px 0 10px; }
+}
+
+/* =========================
+   MAP & TIMELINE SECTION
+========================= */
+.neo-map-section {
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 60px auto; /* was 100px – reduced top gap */
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: auto 140px;
+  border: 3px solid #000;
+  background: #f5f5f5;
+  box-shadow: 8px 8px 0 #000;
+  overflow: hidden;
+}
+
+/* GRID FIX */
+.neo-left {
+  grid-column: 1;
+  grid-row: 1;
+  border-right: 3px solid #000;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+#neo-map {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-left: 3px solid #000;
+  position: relative;
+}
+.neo-info {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  border-top: 3px solid #000;
+  background: #fff;
+  padding: 24px;
+  min-height: 120px;
+}
+
+/* TIMELINE ITEMS */
+.neo-item {
+  padding: 33px;
+  border-bottom: 3px solid #000;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+.neo-item.active,
+.neo-item:hover {
+  background: #000;
+  color: #fff;
+}
+.neo-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: #ffe600;
+}
+
+/* MAP GRID BACKGROUND */
+#neo-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(#00000010 1px, transparent 1px),
+              linear-gradient(90deg, #00000010 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* DOTS – preserved */
+.neo-dot {
+  width: 12px;
+  height: 12px;
+  background: #f5f13c;
+  border-radius: 50%;
+}
+.neo-dot.active {
+  background: #2fff6a;
+}
+
+/* INFO PANEL TEXT */
+#neo-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+#neo-desc {
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) and (min-width: 769px) {
+  .neo-map-section {
+    grid-template-columns: 280px 1fr;
+    width: calc(100% - 60px);
+    margin: 60px auto;
+  }
+  .neo-item {
+    padding: 18px;
+  }
+  .neo-item h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .neo-item p {
+    font-size: 0.85rem;
+    margin: 2px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .neo-map-section {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 48px);
+    margin: 40px auto;
+    box-shadow: 4px 4px 0 #000;
+  }
+  #neo-map {
+    order: -2;
+    border: none;
+    min-height: 350px;
+    aspect-ratio: 16 / 9;
+  }
+  .neo-info {
+    order: -1;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    width: 100%;
+    padding: 20px;
+  }
+  .neo-left {
+    order: 0;
+    border: none;
+    width: 100%;
+  }
+  .neo-item {
+    width: 100%;
+    padding: 18px 20px;
+    border-bottom: 3px solid #000;
+    border-right: none;
+  }
+  .neo-item:last-child {
+    border-bottom: none;
+  }
+  .neo-item h3 {
+    font-size: 0.95rem;
+  }
+  .neo-item p {
+    font-size: 0.85rem;
+  }
+  #neo-title {
+    font-size: 1.2rem;
+  }
+  #neo-desc {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .neo-map-section {
+    width: calc(100% - 32px);
+    margin: 30px auto;
+    box-shadow: 3px 3px 0 #000;
+  }
+  .neo-item {
+    padding: 14px 16px;
+  }
+  .neo-item h3 {
+    font-size: 0.9rem;
+  }
+  .neo-item p {
+    font-size: 0.8rem;
+  }
+  #neo-map {
+    min-height: 280px;
+    aspect-ratio: 4 / 3;
+  }
+  .neo-info {
+    padding: 16px;
+  }
+  #neo-title {
+    font-size: 1.1rem;
+  }
+  #neo-desc {
+    font-size: 0.8rem;
+  }
+  .neo-item::before {
+    width: 4px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .neo-map-section {
+    margin: 20px auto;
+  }
+  #neo-map {
+    min-height: 280px;
+    aspect-ratio: 16 / 9;
+  }
+  .neo-item {
+    padding: 12px 16px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .neo-map-section {
+    max-width: 1400px;
+  }
+  .neo-left {
+    width: 360px;
+  }
+  .neo-item {
+    padding: 26px;
+  }
+  .neo-item h3 {
+    font-size: 1.3rem;
+  }
+  .neo-item p {
+    font-size: 1rem;
+  }
+  #neo-title {
+    font-size: 1.6rem;
+  }
+  #neo-desc {
+    font-size: 1rem;
+  }
+}
+
+/* TOUCH DEVICES */
+@media (hover: none) and (pointer: coarse) {
+  .neo-item {
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .neo-item:active {
+    background: #000;
+    color: #fff;
+  }
+}
+
+/* UTILITIES */
+#neo-map img {
+  max-width: none;
+}
+.neo-info {
+  word-break: break-word;
+}
+#neo-map::after {
+  background-size: clamp(20px, 5vw, 40px) clamp(20px, 5vw, 40px);
 }

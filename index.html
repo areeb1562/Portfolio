@@ -8,228 +8,368 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/Favicon/AB.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js"></script>
 </head>
 
-<div class="preloader">
-  <div class="loader-line">
+<body>
 
-    <div class="left-group">
-      <span>Loading</span>
-      <span class="dots"></span>
+  <!-- PRELOADER -->
+  <div class="preloader">
+    <div class="loader-line">
+
+      <div class="left-group">
+        <span>Loading</span>
+        <span class="dots"></span>
+      </div>
+
+      <span class="percent">0%</span>
+
     </div>
-
-    <span class="percent">0%</span>
-
   </div>
-</div>
 
 
-<!-- HEADER -->
-<header class="brutal-header">
-  <div class="header-inner">
+  <!-- HEADER -->
+  <header class="brutal-header">
 
-    <a href="#" class="logo brutal-btn">
-      AREEB.exe
-    </a>
+    <div class="header-inner">
 
-    <nav class="nav brutal-box">
-      <a href="#about">/ ABOUT</a>
-      <a href="#skill">/ SKILLS</a>
-      <a href="#log">/ LOG</a>
-      <a href="#project">/ PROJECTS</a>
-      <a href="#contact" class="hire-btn">HIRE ME</a>
-    </nav>
+      <a href="#" class="logo brutal-btn">
+        AREEB.exe
+      </a>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button class="menu-btn" id="menuBtn">MENU</button>
+      <nav class="nav brutal-box">
+        <a href="#about">/ ABOUT</a>
+        <a href="#skill">/ SKILLS</a>
+        <a href="#log">/ LOG</a>
+        <a href="#project">/ PROJECTS</a>
+        <a href="#contact" class="hire-btn">HIRE ME</a>
+      </nav>
 
+      <!-- MOBILE MENU BUTTON -->
+      <button class="menu-btn" id="menuBtn">MENU</button>
 
-    <!-- OVERLAY -->
-    <div class="menu-overlay" id="menuOverlay"></div>
+      <!-- OVERLAY -->
+      <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- MOBILE MENU PANEL -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#about">ABOUT</a>
-      <a href="#skill">SKILLS</a>
-      <a href="#log">LOG</a>
-      <a href="#project">PROJECTS</a>
-      <a href="#contact" class="mobile-hire">HIRE ME</a>
-    </div>
-
-
-</header>
-</div>
-</header>
-<!--END HEADER -->
-
-<!--HERO -->
-<section class="hero">
-  <div class="hero-inner">
-
-    <div class="hero-left">
-
-      <div class="status brutal-mini">
-        <span class="dot"></span>
-        SYSTEM STATUS: ONLINE
-      </div>
-
-      <h1 class="hero-title">
-        DATA SCIENTIST • <br>
-        ANALYST
-      </h1>
-
-      <div class="hero-yellow">
-        I turn raw data into insights and build tools that make sense of the numbers.
-      </div>
-
-
-      <div class="hero-strip">
-        MACHINE LEARNING • DATA ANALYSIS • WEB DEVELOPMENT
+      <!-- MOBILE MENU PANEL -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">ABOUT</a>
+        <a href="#skill">SKILLS</a>
+        <a href="#log">LOG</a>
+        <a href="#project">PROJECTS</a>
+        <a href="#contact" class="mobile-hire">HIRE ME</a>
       </div>
 
     </div>
 
-    <div class="hero-right">
-      <img src="assets/img/Index/Hero-AB.png" alt="Hero Illustration">
-    </div>
+  </header>
+  <!-- END HEADER -->
 
-  </div>
-</section>
-<!--END HERO -->
 
-<!--SCROLL -->
-<section class="skill-marquee">
-  <div class="marquee-track">
-    <div class="marquee-content">
-      <span>• PYTHON</span>
-      <span>• SQL</span>
-      <span>• DATA VISUALISATION</span>
-      <span>• ML MODELS</span>
-      <span>• DASHBOARDING</span>
-      <span>• WEB APPS</span>
-      <span>• FULL STACK DEVELOPER</span>
-      <span>• OPEN FOR WORK</span>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
 
-    <!-- Duplicate for seamless loop -->
-    <div class="marquee-content">
-      <span>• PYTHON</span>
-      <span>• SQL</span>
-      <span>• DATA VISUALISATION</span>
-      <span>• ML MODELS</span>
-      <span>• DASHBOARDING</span>
-      <span>• WEB APPS</span>
-      <span>• FULL STACK DEVELOPER</span>
-      <span>• OPEN FOR WORK</span>
-    </div>
-  </div>
-</section>
-<!--END SCROLL -->
+    <div class="hero-inner">
 
-<!-- ============================= -->
-<!--         ABOUT SECTION         -->
-<!-- ============================= -->
-<section class="about-section" id="about">
+      <div class="hero-left">
 
-  <div class="about-wrapper">
-
-    <div class="about-grid">
-
-      <!-- LEFT SIDE -->
-      <div class="about-left">
-
-        <!-- IMAGE (5:4 Ratio) -->
-        <div class="about-image">
-          <img src="assets/img/Index/img.png" alt="Areeb">
+        <div class="status brutal-mini" style="color: black;">
+          <span class="dot"></span>
+          SYSTEM STATUS: ONLINE
         </div>
 
-        <!-- MUSIC PLAYER -->
-        <div class="about-music">
+        <h1 class="hero-title">
+          DATA SCIENTIST • <br>
+          ANALYST
+        </h1>
 
-          <div class="music-header">
-            ■ NOW PLAYING
-          </div>
+        <div class="hero-yellow">
+          I turn raw data into insights and build tools that make sense of the numbers.
+        </div>
 
-          <div class="retro-display">
-
-            <div class="display-top">
-              <h4 id="trackTitle">Loading...</h4>
-              <span id="timeDisplay">00:00 / 00:00</span>
-            </div>
-
-            <div class="display-progress">
-              <input type="range" id="progressBar" value="0">
-            </div>
-
-          </div>
-
-          <div class="control-row">
-
-            <div class="music-controls">
-              <button id="prevBtn">⏮</button>
-              <button id="playPauseBtn">▶</button>
-              <button id="nextBtn">⏭</button>
-            </div>
-
-            <div class="volume-retro">
-              🔊
-              <input type="range" id="volumeBar" min="0" max="0.7" step="0.01">
-            </div>
-
-          </div>
-
+        <div class="hero-strip">
+          MACHINE LEARNING • DATA ANALYSIS • WEB DEVELOPMENT
         </div>
 
       </div>
 
+      <div class="hero-right">
+        <img src="assets/img/Index/Hero-AB.png" alt="Hero Illustration">
+      </div>
 
-      <!-- RIGHT SIDE -->
-      <div class="about-right">
+    </div>
 
-        <h2 class="about-title">WHO AM I?</h2>
-
-        <p class="about-description">
-          I’m <span class="highlight">Areeb Basheer</span>,
-          a Data Scientist and developer working across AI, analytics,
-          and scalable web systems — turning complex problems into meaningful products
-          while adding <span class="highlight-yellow">personality</span> to work
-        </p>
+  </section>
+  <!-- END HERO -->
 
 
+  <!-- SKILL SCROLL -->
+  <section class="skill-marquee">
 
-        <ul class="about-points">
-          <li>› Data Scientist focused on real-world AI systems</li>
-          <li>› Designing and building scalable web applications</li>
-          <li>› Turning messy data into clear, useful insights</li>
-          <li>› Blending logic, creativity, and performance</li>
-        </ul>
+    <div class="marquee-track">
+
+      <div class="marquee-content">
+        <span>• PYTHON</span>
+        <span>• SQL</span>
+        <span>• DATA VISUALISATION</span>
+        <span>• ML MODELS</span>
+        <span>• DASHBOARDING</span>
+        <span>• WEB APPS</span>
+        <span>• FULL STACK DEVELOPER</span>
+        <span>• OPEN FOR WORK</span>
+      </div>
+
+      <div class="marquee-content">
+        <span>• PYTHON</span>
+        <span>• SQL</span>
+        <span>• DATA VISUALISATION</span>
+        <span>• ML MODELS</span>
+        <span>• DASHBOARDING</span>
+        <span>• WEB APPS</span>
+        <span>• FULL STACK DEVELOPER</span>
+        <span>• OPEN FOR WORK</span>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- END SCROLL -->
 
 
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
 
-        <div class="about-meta">
-          <div class="meta-box dark">
-            📍 LOCATION: WORLDWIDE
+    <div class="about-wrapper">
+
+      <div class="about-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="about-left">
+
+          <div class="about-image">
+            <img src="assets/img/Index/img.png" alt="Areeb">
           </div>
-          <div class="meta-box green">
-            ● STATUS: AVAILABLE
+
+          <div class="about-music">
+
+            <div class="music-header">
+              ■ NOW PLAYING
+            </div>
+
+            <div class="retro-display">
+
+              <div class="display-top">
+                <h4 id="trackTitle">Loading...</h4>
+                <span id="timeDisplay">00:00 / 00:00</span>
+              </div>
+
+              <div class="display-progress">
+                <input type="range" id="progressBar" value="0">
+              </div>
+
+            </div>
+
+            <div class="control-row">
+
+              <div class="music-controls">
+                <button id="prevBtn">⏮</button>
+                <button id="playPauseBtn">▶</button>
+                <button id="nextBtn">⏭</button>
+              </div>
+
+              <div class="volume-retro">
+                🔊
+                <input type="range" id="volumeBar" min="0" max="0.7" step="0.01">
+              </div>
+
+            </div>
+
           </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="about-right">
+
+          <h2 class="about-title">WHO AM I?</h2>
+
+          <p class="about-description">
+            I’m <span class="highlight">Areeb Basheer</span>,
+            a Data Scientist and developer working across AI, analytics,
+            and scalable web systems — turning complex problems into meaningful products
+            while adding <span class="highlight-yellow">personality</span> to work
+          </p>
+
+          <ul class="about-points">
+            <li>› Data Scientist focused on real-world AI systems</li>
+            <li>› Designing and building scalable web applications</li>
+            <li>› Turning messy data into clear, useful insights</li>
+            <li>› Blending logic, creativity, and performance</li>
+          </ul>
+
+          <div class="about-meta">
+            <div class="meta-box dark">
+              📍 LOCATION: WORLDWIDE
+            </div>
+            <div class="meta-box green">
+              ● STATUS: AVAILABLE
+            </div>
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
+  </section>
+
+
+
+  <section class="skills-stack" id="skill">
+
+    <div class="skills-header">
+      <h1><span>SKILLS</span>_STACK</h1>
+      <div class="status">● /// SYSTEM_READY</div>
+    </div>
+
+    <div class="skills-grid">
+
+      <!-- DATA / ML -->
+      <div class="skill-card c1">
+        <span class="label">>_ DATA</span>
+        <h3>DATA ANALYSIS</h3>
+      </div>
+
+      <div class="skill-card c2">
+        <span class="label">>_ ML</span>
+        <h3>MACHINE LEARNING</h3>
+      </div>
+
+      <div class="skill-card c3">
+        <span class="label">>_ ML</span>
+        <h3>DEEP LEARNING</h3>
+      </div>
+
+      <div class="skill-card c4">
+        <span class="label">>_ ML</span>
+        <h3>MODEL TUNING</h3>
+      </div>
+
+      <!-- PROGRAMMING -->
+      <div class="skill-card c5">
+        <span class="label">>_ LANGUAGE</span>
+        <h3>PYTHON</h3>
+      </div>
+
+      <div class="skill-card c6">
+        <span class="label">>_ DATABASE</span>
+        <h3>SQL</h3>
+      </div>
+
+      <!-- WEB -->
+      <div class="skill-card c7">
+        <span class="label">>_ FRONTEND</span>
+        <h3>HTML</h3>
+      </div>
+
+      <div class="skill-card c8">
+        <span class="label">>_ STYLING</span>
+        <h3>CSS</h3>
+      </div>
+
+      <div class="skill-card c9">
+        <span class="label">>_ SCRIPT</span>
+        <h3>JAVASCRIPT</h3>
+      </div>
+
+      <div class="skill-card c10">
+        <span class="label">>_ FRAMEWORK</span>
+        <h3>DJANGO</h3>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="skill-card c11">
+        <span class="label">>_ ANALYTICS</span>
+        <h3>POWER BI</h3>
+      </div>
+
+      <div class="skill-card c12">
+        <span class="label">>_ TOOL</span>
+        <h3>EXCEL</h3>
+      </div>
+
+    </div>
+
+    <div class="skills-footer">
+      <span>TOTAL_SKILLS: 12</span>
+      <span>STATUS: LOCKED IN</span>
+    </div>
+
+  </section>
+
+
+<section class="experience-wrapper" id="log">
+
+  <!-- TITLE -->
+  <div class="exp-title">
+    <h1>
+      EXPERIENCE<span>_LOG</span>
+    </h1>
+  </div>
+
+  <!-- MAP + TIMELINE -->
+  <div class="neo-map-section reverse">
+
+    <!-- LEFT MAP -->
+    <div id="neo-map"></div>
+
+    <!-- RIGHT TIMELINE -->
+    <div class="neo-left">
+
+      <div class="neo-item">
+        <h3>DATA SCIENTIST</h3>
+        <h4>LYSEIBUG</h4>
+        <p>INDIA (05/2025 - PRESENT)</p>
+      </div>
+
+      <div class="neo-item">
+        <h3>DATA ANALYST</h3>
+        <h4>GRAND HYPERMARKETS</h4>
+        <p>UAE (02/2023 - 05/2025)</p>
+      </div>
+
+      <div class="neo-item">
+        <h3>DATA SCIENCE INTERN</h3>
+        <h4>TECHOLAS TECHNOLOGIES</h4>
+        <p>INDIA (07/2022 - 02/2023)</p>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM INFO -->
+    <div class="neo-info">
+      <h2 id="neo-title">HOVER A LOCATION</h2>
+      <p id="neo-desc">Details will appear here.</p>
+    </div>
+
   </div>
 
 </section>
 
-<audio id="audioPlayer"></audio>
 
 
+  <audio id="audioPlayer"></audio>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </body>
 
