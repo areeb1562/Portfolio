@@ -1,3 +1,55 @@
+/* ========================= */
+/*        RETRO CURSOR       */
+/* ========================= */
+
+/* REMOVE DEFAULT CURSOR EVERYWHERE */
+* {
+  cursor: none !important;
+}
+
+/* allow text cursor where needed
+input, textarea {
+  cursor: text !important;
+} */
+
+/* MAIN CURSOR */
+.retro-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 14px;
+  height: 14px;
+
+  background: #2fff6a;
+  border: 2px solid #000;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+
+  transition: 
+    transform 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* HOVER STATE (clickable elements) */
+.retro-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.8);
+  background: #ff2b2b;
+}
+
+/* CLICK EFFECT */
+.retro-cursor.click {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+
+
+
+
+
 /* ============================= */
 /*        GLOBAL RESET           */
 /* ============================= */
