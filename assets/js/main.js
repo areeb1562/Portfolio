@@ -317,7 +317,7 @@ const locations = [
   },
   {
     coords: [11.2588, 75.7804],
-    title: "DATA SCIENCE INTERN — TECHOLAS",
+    title: "DATA SCIENCE INTERN — TECHOLAS TECHNOLOGIES",
     desc: `
     • Developed and evaluated predictive models using real-world datasets <br>
     • Performed exploratory data analysis to uncover actionable insights <br>
@@ -410,7 +410,7 @@ function initNeoMap() {
     markers.forEach(m => m.getElement().classList.remove("active"));
     items.forEach(i => i.classList.remove("active"));
 
-    document.getElementById("neo-title").textContent = "HOVER A LOCATION";
+    document.getElementById("neo-title").textContent = "SELECT A JOB";
     document.getElementById("neo-desc").textContent = "Details will appear here.";
   });
 

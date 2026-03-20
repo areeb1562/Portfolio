@@ -3,8 +3,15 @@
 /* ========================= */
 
 /* REMOVE DEFAULT CURSOR EVERYWHERE */
-* {
-  cursor: none !important;
+/* hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .retro-cursor {
+    display: none;
+  }
+
+  * {
+    cursor: auto !important; /* bring back normal touch behavior */
+  }
 }
 
 /* allow text cursor where needed
@@ -21,7 +28,8 @@ input, textarea {
   width: 14px;
   height: 14px;
 
-  background: #2fff6a;
+  /* background: #2fff6a; */
+  background: #f5f13c;
   border: 2px solid #000;
 
   transform: translate(-50%, -50%);
@@ -45,6 +53,21 @@ input, textarea {
   transform: translate(-50%, -50%) scale(0.8);
 }
 
+/* ========================= */
+/*      TEXT SELECTION       */
+/* ========================= */
+
+/* Chrome, Edge, Safari */
+::selection {
+  background: #2fff6a; /* neon green */
+  color: #000;         /* black text */
+}
+
+/* Firefox */
+::-moz-selection {
+  background: #2fff6a;
+  color: #000;
+}
 
 
 
