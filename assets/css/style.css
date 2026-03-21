@@ -3,6 +3,12 @@
 /* ========================= */
 
 /* REMOVE DEFAULT CURSOR EVERYWHERE */
+/* Only apply on devices that actually have a cursor */
+@media (hover: hover) and (pointer: fine) {
+  html, body, * {
+    cursor: none !important;
+  }
+}
 /* hide custom cursor on touch devices */
 @media (hover: none) and (pointer: coarse) {
   .retro-cursor {
@@ -1592,7 +1598,7 @@ body::after {
 .c12:hover { background: #ff9f1c; }
 
 /* ========================= */
-/*          FOOTER           */
+/*      SKILLS FOOTER        */
 /* ========================= */
 
 .skills-footer {
